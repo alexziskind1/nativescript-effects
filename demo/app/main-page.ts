@@ -49,15 +49,31 @@ class MainPageController extends Observable {
         );
     }
     
+    private randomLocNum() {
+        return Math.floor(Math.random() * 100) + 1;
+    }
+    private randomScaleNum() {
+        return Math.floor(Math.random() * 30) / 10 + 1;
+    }
+    
     public tapAction() {
         this.counter++;
+        this.set("message", `${this.counter} taps`);
         
-        this.lblCounter.fadeTo(150, 0.2)
-            .then(()=>{
-                this.set("message", `${this.counter} taps`);
-                this.lblCounter.fadeIn();
-            });
-            
+        this.btnTap.spring(2000, {
+            scale:{ x: this.randomScaleNum(), y: this.randomScaleNum() },
+                    delay: 0,
+                    dampingRatio: 0.6,
+                    velocity: 2.5,
+                    options: null
+        });
+        
+        this.lblCounter.spring(5000, { 
+                    translate:{ x: this.randomLocNum(), y: this.randomLocNum() },
+                    delay: 0,
+                    dampingRatio: 0.3,
+                    velocity: 6.0,
+                    options: null});    
     }
 }
 
