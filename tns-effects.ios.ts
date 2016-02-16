@@ -10,6 +10,10 @@ export class ViewEffects {
         this._view = view;
     }
     
+    public test(s: number = 4) {
+        
+    }
+    
     public nativeSpring(animation): Promise<void> {
         var aTrans = {x: 0, y: 0};
         var aScale = {x: 1, y: 1};

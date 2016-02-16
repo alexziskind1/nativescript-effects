@@ -4,6 +4,9 @@ var ViewEffects = (function () {
     function ViewEffects(view) {
         this._view = view;
     }
+    ViewEffects.prototype.test = function (s) {
+        if (s === void 0) { s = 4; }
+    };
     ViewEffects.prototype.nativeSpring = function (animation) {
         var _this = this;
         var aTrans = { x: 0, y: 0 };

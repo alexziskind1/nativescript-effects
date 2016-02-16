@@ -35,7 +35,8 @@ var Effects = {
 };
 exports.ViewEffects = Effects;
 
-viewModule.View.prototype.fadeIn = function(duration = Effects.defaultDuration) {
+viewModule.View.prototype.fadeIn = function(duration) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
     var msDuration = Effects.getMsValue(duration);
     return this.animate({
         opacity: 1,
@@ -43,7 +44,8 @@ viewModule.View.prototype.fadeIn = function(duration = Effects.defaultDuration) 
     });
 };
 
-viewModule.View.prototype.fadeOut = function(duration = Effects.defaultDuration) {
+viewModule.View.prototype.fadeOut = function(duration) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
 	var msDuration = Effects.getMsValue(duration);
     return this.animate({
         opacity: 0,
@@ -51,7 +53,9 @@ viewModule.View.prototype.fadeOut = function(duration = Effects.defaultDuration)
     });
 };
 
-viewModule.View.prototype.fadeTo = function(duration = Effects.defaultDuration, opacity = 1) {
+viewModule.View.prototype.fadeTo = function(duration, opacity) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    if (opacity === void 0) { opacity = 1; }
     var msDuration = Effects.getMsValue(duration);
     return this.animate({
         opacity: opacity,
@@ -59,7 +63,8 @@ viewModule.View.prototype.fadeTo = function(duration = Effects.defaultDuration, 
     });
 };
 
-viewModule.View.prototype.fadeToggle = function(duration = Effects.defaultDuration) {
+viewModule.View.prototype.fadeToggle = function(duration) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
     if (this.opacity > 0) {
         this.fadeOut(duration);
     }
@@ -70,7 +75,9 @@ viewModule.View.prototype.fadeToggle = function(duration = Effects.defaultDurati
 
 //.floatIn( [duration ]  )
 //.floatIn( options )
-viewModule.View.prototype.floatIn = function(duration = Effects.defaultDuration, direction = Effects.defaultFloatDirection) {
+viewModule.View.prototype.floatIn = function(duration, direction) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    if (direction === void 0) { direction = Effects.defaultFloatDirection; }
     var self = this;
     var msDuration = Effects.getMsValue(duration);
     var dir = Effects.presetDirections[direction];
@@ -95,7 +102,9 @@ viewModule.View.prototype.floatIn = function(duration = Effects.defaultDuration,
 
 
 
-viewModule.View.prototype.floatOut = function(duration = Effects.defaultDuration, direction = Effects.defaultFloatDirection) {
+viewModule.View.prototype.floatOut = function(duration, direction) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    if (direction === void 0) { direction = Effects.defaultFloatDirection; }
     var msDuration = Effects.getMsValue(duration);
     var dir = Effects.presetDirections[direction];
     if (!dir) {
@@ -129,7 +138,11 @@ viewModule.View.prototype.toggle = function(duration = 1) {
 
 //.slideDown( [duration ]  )
 //.slideDown( options )
-viewModule.View.prototype.slideDown = function(duration = Effects.defaultDuration, distance = Effects.defaultSlideDistance) {
+viewModule.View.prototype.slideDown = function(duration, distance) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    if (distance === void 0) { distance = Effects.defaultSlideDistance; }
+    var self = this;
+    
     var msDuration = Effects.getMsValue(duration);
     
     this.translateY = distance;
@@ -150,7 +163,10 @@ viewModule.View.prototype.slideDown = function(duration = Effects.defaultDuratio
     });
 };
 
-viewModule.View.prototype.slideUp = function(duration = Effects.defaultDuration, distance = Effects.defaultSlideDistance) {
+viewModule.View.prototype.slideUp = function(duration, distance) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    if (distance === void 0) { distance = Effects.defaultSlideDistance; }
+    
     var msDuration = Effects.getMsValue(duration);
     return this.animate({ 
         translate: { x: 0, y: distance }, 
@@ -159,7 +175,10 @@ viewModule.View.prototype.slideUp = function(duration = Effects.defaultDuration,
     });
 };
 
-viewModule.View.prototype.slideToggle = function(duration = Effects.defaultDuration, distance = Effects.defaultSlideDistance) {
+viewModule.View.prototype.slideToggle = function(duration, distance) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    if (distance === void 0) { distance = Effects.defaultSlideDistance; }
+    
     if (this.opacity > 0) {
         this.slideUp(duration, distance);
     }
@@ -168,7 +187,9 @@ viewModule.View.prototype.slideToggle = function(duration = Effects.defaultDurat
     }
 };
 
-viewModule.View.prototype.spring = function(duration = Effects.defaultDuration, animation = null) {
+viewModule.View.prototype.spring = function(duration, animation) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+    
     var msDuration = Effects.getMsValue(duration);
     if (!animation) {
         animation = {
