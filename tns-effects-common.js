@@ -8,6 +8,13 @@ var definition = require("./tns-effects");
 var Effects = {
     defaultDuration : 400,
     defaultSlideDistance: -100,
+    defaultFloatDirection: 'up',
+    presetDirections: {
+        'up': {x: 0, y: 100},
+        'down': {x: 0, y: -100},
+        'left': {x: 100, y: 0},
+        'right': {x: -100, y: 0}
+    },
     presetDurations: {
         'fast' : 200,
         'slow' : 600
@@ -61,10 +68,53 @@ viewModule.View.prototype.fadeToggle = function(duration = Effects.defaultDurati
     }
 };
 
+//.floatIn( [duration ]  )
+//.floatIn( options )
+viewModule.View.prototype.floatIn = function(duration = Effects.defaultDuration, direction = Effects.defaultFloatDirection) {
+    var self = this;
+    var msDuration = Effects.getMsValue(duration);
+    var dir = Effects.presetDirections[direction];
+    if (!dir) {
+        dir = Effects.presetDirections['up'];
+    }
+
+    var promiseSetup = self.animate({
+        translate: { x: dir.x, y: dir.y },
+        opacity: 0,
+        duration: 1
+    });
+    
+    return promiseSetup.then(function() {
+        return self.animate({ 
+            translate: { x: 0, y: 0 },
+            opacity: 1,
+            duration: msDuration 
+        });
+    });
+};
+
+
+
+viewModule.View.prototype.floatOut = function(duration = Effects.defaultDuration, direction = Effects.defaultFloatDirection) {
+    var msDuration = Effects.getMsValue(duration);
+    var dir = Effects.presetDirections[direction];
+    if (!dir) {
+        dir = Effects.presetDirections['down'];
+    }
+    return this.animate({ 
+        translate: { x: dir.x, y: dir.y }, 
+        opacity: 0,
+        duration: msDuration
+    });
+};
+
+
+
+
+
 //.hide()
 //.hide( [duration ] )
 //.hide( options )
-//.hide( duration [, easing ] )
 viewModule.View.prototype.hide = function(duration = 1) {
     this.fadeOut(duration);
 };
@@ -81,12 +131,22 @@ viewModule.View.prototype.toggle = function(duration = 1) {
 //.slideDown( options )
 viewModule.View.prototype.slideDown = function(duration = Effects.defaultDuration, distance = Effects.defaultSlideDistance) {
     var msDuration = Effects.getMsValue(duration);
+    
     this.translateY = distance;
     this.opacity = 0;
-    return this.animate({ 
-        translate: { x: 0, y: 0 }, 
-        opacity: 1,
-        duration: msDuration 
+    
+    var promiseSetup = self.animate({
+        translate: { x: 0, y: distance },
+        opacity: 0,
+        duration: 1
+    });
+
+    return promiseSetup.then(function() {
+        return self.animate({ 
+            translate: { x: 0, y: 0 },
+            opacity: 1,
+            duration: msDuration 
+        });
     });
 };
 

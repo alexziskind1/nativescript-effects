@@ -1,41 +1,44 @@
 {
-  "name": "nativescript-effects",
-  "version": "0.1.0",
-  "main": "tns-effects.js",
-  "description": "A NativeScript plugin that extend animations to include common animation scenarios.",
-  "nativescript": {
-    "platforms": {
-      "android": "1.5.0",
-      "ios": "1.5.2"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexziskind1/nativescript-effects.git"
-  },
-  "keywords": [
-    "NativeScript",
-    "native",
-    "script",
-    "animation",
-    "effects"
-  ],
-  "contributors": [ ],
-  "author":     {
-      "name": "Alexander Ziskind",
-      "email": "alex@nuvious.com",
-      "url": "https://github.com/alexziskind1"
-    },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alexziskind1/nativescript-effects/issues"
-  },
-  "homepage": "https://github.com/alexziskind1/nativescript-effects",
- "readmeFilename": "README.md",
-  "gitHead": "7a5addbe9192a7708fbaac9db42e33f2a156fea6",
-  "_id": "nativescript-effects@0.1.0",
-  "scripts": {},
-  "_shasum": "7bdee571649168a79ded1bf63beb6d7b4b9cfa2a",
-  "_from": "..",
-  "_resolved": "file:.."
+	"name": "nativescript-effects",
+	"version": "0.1.0",
+	"main": "tns-effects.js",
+	"description": "A NativeScript plugin that extend animations to include common animation scenarios.",
+	"nativescript": {
+		"platforms": {
+			"android": "1.5.0",
+			"ios": "1.5.2"
+		},
+		"tns-ios": {
+			"version": "1.5.2"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexziskind1/nativescript-effects.git"
+	},
+	"keywords": [
+		"NativeScript",
+		"native",
+		"script",
+		"animation",
+		"effects"
+	],
+	"contributors": [],
+	"author": {
+		"name": "Alexander Ziskind",
+		"email": "alex@nuvious.com",
+		"url": "https://github.com/alexziskind1"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/alexziskind1/nativescript-effects/issues"
+	},
+	"homepage": "https://github.com/alexziskind1/nativescript-effects",
+	"readmeFilename": "README.md",
+	"gitHead": "7a5addbe9192a7708fbaac9db42e33f2a156fea6",
+	"_id": "nativescript-effects@0.1.0",
+	"scripts": {},
+	"_shasum": "7bdee571649168a79ded1bf63beb6d7b4b9cfa2a",
+	"_from": "..",
+	"_resolved": "file:.."
 }
