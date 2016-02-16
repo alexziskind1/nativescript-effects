@@ -124,15 +124,18 @@ viewModule.View.prototype.floatOut = function(duration, direction) {
 //.hide()
 //.hide( [duration ] )
 //.hide( options )
-viewModule.View.prototype.hide = function(duration = 1) {
+viewModule.View.prototype.hide = function(duration) {
+    if (duration === void 0) { duration = 1; }
     this.fadeOut(duration);
 };
 
-viewModule.View.prototype.show = function(duration = 1) {
+viewModule.View.prototype.show = function(duration) {
+    if (duration === void 0) { duration = 1; }
     this.fadeIn(duration);
 };
 
-viewModule.View.prototype.toggle = function(duration = 1) {
+viewModule.View.prototype.toggle = function(duration) {
+    if (duration === void 0) { duration = 1; }
     this.fadeToggle(duration);
 };
 
