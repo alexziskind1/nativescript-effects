@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-effects",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"main": "tns-effects.js",
 	"description": "A NativeScript plugin that extend animations to include common animation scenarios.",
 	"nativescript": {
