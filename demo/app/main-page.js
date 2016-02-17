@@ -45,19 +45,23 @@ var MainPageController = (function (_super) {
     MainPageController.prototype.tapAction = function () {
         this.counter++;
         this.set("message", this.counter + " taps");
+        this.lblCounter.hide();
+        /*
         this.btnTap.spring(2000, {
-            scale: { x: this.randomScaleNum(), y: this.randomScaleNum() },
-            delay: 0,
-            dampingRatio: 0.6,
-            velocity: 2.5,
-            options: null
+            scale:{ x: this.randomScaleNum(), y: this.randomScaleNum() },
+                    delay: 0,
+                    dampingRatio: 0.6,
+                    velocity: 2.5,
+                    options: null
         });
+        
         this.lblCounter.spring(5000, {
-            translate: { x: this.randomLocNum(), y: this.randomLocNum() },
-            delay: 0,
-            dampingRatio: 0.3,
-            velocity: 6.0,
-            options: null });
+                    translate:{ x: this.randomLocNum(), y: this.randomLocNum() },
+                    delay: 0,
+                    dampingRatio: 0.3,
+                    velocity: 6.0,
+                    options: null});
+                    */
     };
     return MainPageController;
 })(observable_1.Observable);

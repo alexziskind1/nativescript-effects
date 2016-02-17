@@ -3,7 +3,7 @@
 var viewModule = require("ui/core/view");
 var typesModule = require("utils/types");
 var definition = require("./tns-effects");
-
+var enums = require("ui/enums");
 
 var Effects = {
     defaultDuration : 400,
@@ -118,25 +118,29 @@ viewModule.View.prototype.floatOut = function(duration, direction) {
 };
 
 
-
-
-
 //.hide()
 //.hide( [duration ] )
 //.hide( options )
 viewModule.View.prototype.hide = function(duration) {
     if (duration === void 0) { duration = 1; }
+    this.visibility = enums.Visibility.collapse;
     return this.fadeOut(duration);
 };
 
 viewModule.View.prototype.show = function(duration) {
     if (duration === void 0) { duration = 1; }
+    this.visibility = enums.Visibility.visible;
     return this.fadeIn(duration);
 };
 
 viewModule.View.prototype.toggle = function(duration) {
     if (duration === void 0) { duration = 1; }
-    return this.fadeToggle(duration);
+    if (this.visibility === enums.Visibility.collapse) {
+        return this.show(duration);
+    }
+    else {
+        return this.hide(duration);
+    }
 };
 
 //.slideDown( [duration ]  )
