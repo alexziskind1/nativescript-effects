@@ -66,10 +66,10 @@ viewModule.View.prototype.fadeTo = function(duration, opacity) {
 viewModule.View.prototype.fadeToggle = function(duration) {
     if (duration === void 0) { duration = Effects.defaultDuration; }
     if (this.opacity > 0) {
-        this.fadeOut(duration);
+        return this.fadeOut(duration);
     }
     else {
-        this.fadeIn(duration);
+        return this.fadeIn(duration);
     }
 };
 
@@ -126,17 +126,17 @@ viewModule.View.prototype.floatOut = function(duration, direction) {
 //.hide( options )
 viewModule.View.prototype.hide = function(duration) {
     if (duration === void 0) { duration = 1; }
-    this.fadeOut(duration);
+    return this.fadeOut(duration);
 };
 
 viewModule.View.prototype.show = function(duration) {
     if (duration === void 0) { duration = 1; }
-    this.fadeIn(duration);
+    return this.fadeIn(duration);
 };
 
 viewModule.View.prototype.toggle = function(duration) {
     if (duration === void 0) { duration = 1; }
-    this.fadeToggle(duration);
+    return this.fadeToggle(duration);
 };
 
 //.slideDown( [duration ]  )
@@ -183,10 +183,10 @@ viewModule.View.prototype.slideToggle = function(duration, distance) {
     if (distance === void 0) { distance = Effects.defaultSlideDistance; }
     
     if (this.opacity > 0) {
-        this.slideUp(duration, distance);
+        return this.slideUp(duration, distance);
     }
     else {
-        this.slideDown(duration, distance);
+        return this.slideDown(duration, distance);
     }
 };
 
