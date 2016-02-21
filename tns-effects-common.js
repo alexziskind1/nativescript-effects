@@ -38,6 +38,7 @@ exports.ViewEffects = Effects;
 viewModule.View.prototype.fadeIn = function(duration) {
     if (duration === void 0) { duration = Effects.defaultDuration; }
     var msDuration = Effects.getMsValue(duration);
+    this.visibility = enums.Visibility.visible;
     return this.animate({
         opacity: 1,
         duration: msDuration
@@ -57,6 +58,7 @@ viewModule.View.prototype.fadeTo = function(duration, opacity) {
     if (duration === void 0) { duration = Effects.defaultDuration; }
     if (opacity === void 0) { opacity = 1; }
     var msDuration = Effects.getMsValue(duration);
+    this.visibility = enums.Visibility.visible;
     return this.animate({
         opacity: opacity,
         duration: msDuration
@@ -80,6 +82,7 @@ viewModule.View.prototype.floatIn = function(duration, direction) {
     if (direction === void 0) { direction = Effects.defaultFloatDirection; }
     var self = this;
     var msDuration = Effects.getMsValue(duration);
+    this.visibility = enums.Visibility.visible;
     var dir = Effects.presetDirections[direction];
     if (!dir) {
         dir = Effects.presetDirections['up'];
@@ -151,6 +154,7 @@ viewModule.View.prototype.slideDown = function(duration, distance) {
     var self = this;
     
     var msDuration = Effects.getMsValue(duration);
+    this.visibility = enums.Visibility.visible;
     
     this.translateY = distance;
     this.opacity = 0;
