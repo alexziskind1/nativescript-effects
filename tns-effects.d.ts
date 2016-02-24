@@ -17,5 +17,7 @@ declare module "ui/core/view" {
         slideToggle(duration?: string | number, distance?: number): Promise<void>;
 
         spring(duration?: string | number, animation?:any): Promise<void>;
+        
+        shake(): Promise<void>;
     }
 }
