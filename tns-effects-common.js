@@ -226,3 +226,22 @@ viewModule.View.prototype.spring = function(duration, animation) {
     var fx = new definition.ViewEffects(this);
     return fx.nativeSpring(animation);
 }
+
+//.shake( )
+viewModule.View.prototype.shake = function() {
+    var view = this;
+    return new Promise(function (resolve, reject) { 
+        view.animate({ translate: { x: -20, y: 0}, duration: 60, curve: enums.AnimationCurve.linear})
+            .then(function () { return view.animate({ translate: { x: 20, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: -20, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: 20, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: -10, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: 10, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: -5, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: 5, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () { return view.animate({ translate: { x: 0, y: 0}, duration: 60, curve: enums.AnimationCurve.linear}) })
+            .then(function () {
+                return resolve(view);  
+            });
+    });
+}
