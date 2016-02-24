@@ -106,7 +106,7 @@ Type: Number or String <br/>
 A string or number determining how long the animation will run. Number is milliseconds. String is a constant value 'fast' or 'slow'.
 
 ----
-## .shake()
+## .shake() ![](./screenshots/new_70.png)
 Description: *Shake the view back and forth a few times, like a headshake "no"*
 
 

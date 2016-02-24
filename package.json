@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-effects",
-	"version": "0.2.4",
+	"version": "0.3.0",
 	"main": "tns-effects.js",
 	"description": "A NativeScript plugin that extend animations to include common animation scenarios.",
 	"nativescript": {
@@ -23,7 +23,13 @@
 		"animation",
 		"effects"
 	],
-	"contributors": [],
+	"contributors": [
+        {
+            "name": "Steve McNiven-Scott",
+            "email": "steve@sitefinitysteve.com",
+            "url": "https://github.com/sitefinitysteve"
+        }
+    ],
 	"author": {
 		"name": "Alexander Ziskind",
 		"email": "alex@nuvious.com",
