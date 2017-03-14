@@ -1,87 +1,66 @@
-import {EventData, Observable} from "data/observable";
-import {Label, Button} from "ui";
-import pageModule = require('ui/page');
-import viewModule = require("ui/core/view");
-var tnsfx = require('nativescript-effects');
+/*
+In NativeScript, a file with the same name as an XML file is known as
+a code-behind file. The code-behind is a great place to place your view
+logic, and to set up your page’s data binding.
+*/
+
+import { EventData } from 'data/observable';
+import { Page } from 'ui/page';
+import { Button } from 'ui/button';
+import { Label } from 'ui/label';
+import { HelloWorldModel } from './main-view-model';
 
 
-class MainPageController extends Observable {
-    private page: pageModule.Page;
-    private counter: number = 42;
-    private lblTitle: Label;
-    private btnTap: Button;
-    private lblCounter: Label;
-    
-    constructor() {
-        super();
-        this.set("message", "number of taps");
-    }
-    
-    public pageLoaded(args: EventData) {
-        this.page = <pageModule.Page>args.object;
-        this.page.bindingContext = this;
-        
-        this.lblTitle = <Label>this.page.getViewById('lblTitle');
-        this.btnTap = <Button>this.page.getViewById('btnTap');
-        this.lblCounter = <Label>this.page.getViewById('lblCounter');
-        
-        this.lblTitle.slideDown(1000, -50)
-        .then(()=> {
-            this.btnTap.fadeIn(5000)
-            .then(()=>{
-                this.lblTitle.slideUp(200, -50);
-                this.btnTap.spring(2000, {
-                    translate: {
-                        x: 0,
-                        y: -50
-                    },
-                    scale: {
-                        x: 3.0,
-                        y: 0.5
-                    },
-                    delay: 0,
-                    dampingRatio: 0.3,
-                    velocity: 2.0,
-                    options: null
+var lblTitle: Label;
+var btnTap: Button;
+var lblCounter: Label;
+
+// Event handler for Page "navigatingTo" event attached in main-page.xml
+export function navigatingTo(args: EventData) {
+    /*
+    This gets a reference this page’s <Page> UI component. You can
+    view the API reference of the Page to see what’s available at
+    https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
+    */
+    let page = <Page>args.object;
+
+    /*
+    A page’s bindingContext is an object that should be used to perform
+    data binding between XML markup and TypeScript code. Properties
+    on the bindingContext can be accessed using the {{ }} syntax in XML.
+    In this example, the {{ message }} and {{ onTap }} bindings are resolved
+    against the object returned by createViewModel().
+
+    You can learn more about data binding in NativeScript at
+    https://docs.nativescript.org/core-concepts/data-binding.
+    */
+    page.bindingContext = new HelloWorldModel();
+
+    lblTitle = <Label>page.getViewById('lblTitle');
+    btnTap = <Button>page.getViewById('btnTap');
+    lblCounter = <Label>page.getViewById('lblCounter');
+
+    lblTitle.slideDown(1000, -50)
+        .then(() => {
+            btnTap.fadeIn(5000)
+                .then(() => {
+                    lblTitle.slideUp(200, -50);
+                    btnTap.spring(2000, {
+                        translate: {
+                            x: 0,
+                            y: -50
+                        },
+                        scale: {
+                            x: 3.0,
+                            y: 0.5
+                        },
+                        delay: 0,
+                        dampingRatio: 0.3,
+                        velocity: 2.0,
+                        options: null
+                    });
                 });
-            });
-            }
+        }
         );
-    }
-    
-    private randomLocNum() {
-        return Math.floor(Math.random() * 100) + 1;
-    }
-    private randomScaleNum() {
-        return Math.floor(Math.random() * 30) / 10 + 1;
-    }
-    
-    public tapAction() {
-        this.counter++;
-        this.set("message", `${this.counter} taps`);
-        
-        
-        this.lblCounter.hide();
-        
-        /*
-        this.btnTap.spring(2000, {
-            scale:{ x: this.randomScaleNum(), y: this.randomScaleNum() },
-                    delay: 0,
-                    dampingRatio: 0.6,
-                    velocity: 2.5,
-                    options: null
-        });
-        
-        this.lblCounter.spring(5000, { 
-                    translate:{ x: this.randomLocNum(), y: this.randomLocNum() },
-                    delay: 0,
-                    dampingRatio: 0.3,
-                    velocity: 6.0,
-                    options: null});   
-                    */ 
-    }
-}
 
-var mpc = new MainPageController();
-export var pageLoaded = args=>mpc.pageLoaded(args);
-export var tapAction = ()=>mpc.tapAction();
+}

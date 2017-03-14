@@ -1,19 +1,22 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.effectsDemo",
-		"tns-android": {
-			"version": "1.5.1"
-		},
-		"tns-ios": {
-			"version": "1.5.2"
-		}
-	},
-	"dependencies": {
-		"tns-core-modules": "1.5.2",
-		"nativescript-effects": "file:.."
-	},
-	"devDependencies": {
-		"nativescript-dev-typescript": "^0.2.3",
-		"typescript": "^1.7.5"
-	}
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "readme": "NativeScript Application",
+  "repository": "<fill-your-repository-here>",
+  "nativescript": {
+    "id": "org.nativescript.demo",
+    "tns-ios": {
+      "version": "2.5.0"
+    }
+  },
+  "dependencies": {
+    "nativescript-effects": "^0.3.0",
+    "nativescript-theme-core": "~1.0.2",
+    "tns-core-modules": "2.5.1"
+  },
+  "devDependencies": {
+    "nativescript-dev-android-snapshot": "^0.*.*",
+    "nativescript-dev-typescript": "~0.3.5",
+    "typescript": "~2.1.0"
+  }
 }
