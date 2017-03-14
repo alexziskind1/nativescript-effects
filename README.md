@@ -21,9 +21,9 @@ In the demo app, this require line is added to the `app.ts` file, but you can al
 var tnsfx = require('nativescript-effects');
 ```
 
-If you are using TypeScript, you'll want to have intellisense for this plugin, so open up the `references.d.ts` file in the root folder of your project and add this line:
-
-```js
+### TypeScript
+To avoid type checking errors, you must additionally configure TypeScript to recognize the method extensions to `View`. Simply add the following line to `references.d.ts` in the root of your project:
+```typescript
 /// <reference path="./node_modules/nativescript-effects/tns-effects.d.ts" />
 ```
 
@@ -36,11 +36,6 @@ myLabel.fadeIn()
            myLabel.fadeOut(10000);
        });
 
-```
-### TypeScript
-To avoid type checking errors, you must additionally configure TypeScript to recognize the method extensions to `View`. Simply add the following line to `references.d.ts` in the root of your project:
-```typescript
-/// <reference path="./node_modules/nativescript-effects/tns-effects.d.ts" />
 ```
 
 ## API
