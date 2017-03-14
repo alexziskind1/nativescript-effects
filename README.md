@@ -37,6 +37,11 @@ myLabel.fadeIn()
        });
 
 ```
+### TypeScript
+To avoid type checking errors, you must additionally configure TypeScript to recognize the method extensions to `View`. Simply add the following line to `references.d.ts` in the root of your project:
+```typescript
+/// <reference path="./node_modules/nativescript-effects/tns-effects.d.ts" />
+```
 
 ## API
 
