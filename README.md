@@ -5,7 +5,7 @@ A NativeScript plugin that adds commonly used animation effects to views. This i
 ## Installation
 
 ```
-$ tns plugin add nativescript-effects
+$ npm install nativescript-effects --save
 ```
 
 This command automatically installs the necessary files, as well as stores nativescript-effects as a dependency in your project's `package.json` file.
@@ -15,8 +15,16 @@ This command automatically installs the necessary files, as well as stores nativ
 
 To use the animation effects plugin you must first `require()` its module. After you `require()` the module you have access to its APIs.
 
+In the demo app, this require line is added to the `app.ts` file, but you can also add it to a single code behind file where you will use the effects.
+
 ``` js
 var tnsfx = require('nativescript-effects');
+```
+
+If you are using TypeScript, you'll want to have intellisense for this plugin, so open up the `references.d.ts` file in the root folder of your project and add this line:
+
+```js
+/// <reference path="./node_modules/nativescript-effects/tns-effects.d.ts" />
 ```
 
 Then get a reference to the view you want to animate and call one of the functions listed below. This view can be any child of the NativeScript View class such as Button, Label, etc.
