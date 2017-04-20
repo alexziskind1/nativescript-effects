@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var common = require("./tns-effects-common");
 global.moduleMerge(common, exports);
 var ViewEffects = (function () {
@@ -9,5 +11,5 @@ var ViewEffects = (function () {
         return this._view.animate(animation);
     };
     return ViewEffects;
-})();
+}());
 exports.ViewEffects = ViewEffects;

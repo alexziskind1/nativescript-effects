@@ -114,7 +114,7 @@ Type: Number or String <br/>
 A string or number determining how long the animation will run. Number is milliseconds. String is a constant value 'fast' or 'slow'.
 
 ----
-## .shake() ![](./screenshots/new_70.png)
+## .shake()
 Description: *Shake the view back and forth a few times, like a headshake "no"*
 
 
@@ -151,6 +151,15 @@ A string or number determining how long the animation will run. Number is millis
 **distance** (default: -100)
 Type: Number <br/>
 A number determining how many points the view will slide.
+
+
+----
+## .slideToggle([duration])
+Description: *Slide down or slide up the view based on current slide state.*
+
+**duration** (default: 400)
+Type: Number or String <br/>
+A string or number determining how long the animation will run. Number is milliseconds. String is a constant value 'fast' or 'slow'.
 
 
 ----

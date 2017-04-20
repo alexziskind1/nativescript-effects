@@ -3,10 +3,14 @@
         "module": "commonjs",
         "target": "es5",
         "experimentalDecorators": true,
-        "noEmitHelpers": true
+        "noEmitHelpers": true,
+        "lib": [
+            "es2016"
+        ]
     },
     "exclude": [
         "node_modules",
-        "platforms"
+        "platforms",
+        "demo"
     ]
 }
