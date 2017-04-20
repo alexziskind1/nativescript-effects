@@ -40,6 +40,12 @@ export function navigatingTo(args: EventData) {
     btnTap = <Button>page.getViewById('btnTap');
     lblCounter = <Label>page.getViewById('lblCounter');
 
+    btnTap.opacity = 0;
+
+    btnTap.on('tap', () => {
+        lblCounter.slideToggle(500);
+    });
+
     lblTitle.slideDown(1000, -50)
         .then(() => {
             btnTap.fadeIn(5000)
