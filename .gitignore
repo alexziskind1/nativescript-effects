@@ -238,4 +238,5 @@ _Pvt_Extensions
 
 node_modules/
 demo/platforms/
+demo3rc/platforms/
 hooks/
