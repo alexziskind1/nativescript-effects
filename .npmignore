@@ -1,6 +1,5 @@
 demo/
 demo-angular/
-demo*/
 node_modules/
 hooks/
 *.log

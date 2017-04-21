@@ -1,4 +1,4 @@
-declare module "ui/core/views" {
+declare module "ui/core/view" {
     interface View {
         fadeIn(duration?: string | number): Promise<void>;
         fadeOut(duration?: string | number): Promise<void>;

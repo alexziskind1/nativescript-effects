@@ -1,3 +1,4 @@
+
 /*
 In NativeScript, a file with the same name as an XML file is known as
 a code-behind file. The code-behind is a great place to place your view
@@ -12,9 +13,10 @@ import { View } from 'ui/core/view';
 import { ViewBase } from 'ui/core/view-base';
 import { HelloWorldModel } from './main-view-model';
 
+
 var lblTitle: Label;
 var btnTap: Button;
-var lblCounter: Label;
+var lblCounter: View;
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
 export function navigatingTo(args: EventData) {
@@ -39,12 +41,12 @@ export function navigatingTo(args: EventData) {
 
     lblTitle = <Label>page.getViewById('lblTitle');
     btnTap = <Button>page.getViewById('btnTap');
-    lblCounter = <Label>page.getViewById('lblCounter');
+    lblCounter = <View>page.getViewById('lblCounter');
 
-    let boo: View;
-
+    let dsf: ViewBase;
+    lblCounter.animate
     btnTap.on('tap', () => {
-        lblCounter.fadeIn(500);
+        lblCounter.sli
     });
 }
 var a = 0;

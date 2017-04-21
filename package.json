@@ -49,7 +49,7 @@
   "_resolved": "file:..",
   "devDependencies": {
     "tns-core-modules": "rc",
-    "tns-platform-declarations": "rc",
+    "tns-platform-declarations": "2.5.2",
     "nativescript-dev-typescript": "~0.4.0",
     "typescript": "~2.2.1"
   }

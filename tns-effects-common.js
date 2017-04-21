@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //nativescript-effects
 var viewModule = require("ui/core/view");
+//var viewModule = require("ui/core/view");
 var typesModule = require("utils/types");
 var definition = require("./tns-effects");
 var enums = require("ui/enums");
