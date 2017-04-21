@@ -18,6 +18,12 @@
             ]
         }
     },
+    "files": [
+        "references.d.ts",
+        "tns-effects-common.ts",
+        "tns-effects.android.ts",
+        "tns-effects.ios.ts"
+    ],
     "exclude": [
         "node_modules",
         "platforms",
