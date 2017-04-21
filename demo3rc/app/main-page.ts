@@ -1,4 +1,3 @@
-
 /*
 In NativeScript, a file with the same name as an XML file is known as
 a code-behind file. The code-behind is a great place to place your view
@@ -9,17 +8,15 @@ import { EventData } from 'data/observable';
 import { Page } from 'ui/page';
 import { Button } from 'ui/button';
 import { Label } from 'ui/label';
-import { View } from 'ui/core/view';
-import { ViewBase } from 'ui/core/view-base';
 import { HelloWorldModel } from './main-view-model';
 
 
 var lblTitle: Label;
 var btnTap: Button;
-var lblCounter: View;
+var lblCounter: Label;
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
-export function navigatingTo(args: EventData) {
+export function loaded(args: EventData) {
     /*
     This gets a reference this page’s <Page> UI component. You can
     view the API reference of the Page to see what’s available at
@@ -41,12 +38,35 @@ export function navigatingTo(args: EventData) {
 
     lblTitle = <Label>page.getViewById('lblTitle');
     btnTap = <Button>page.getViewById('btnTap');
-    lblCounter = <View>page.getViewById('lblCounter');
+    lblCounter = <Label>page.getViewById('lblCounter');
 
-    let dsf: ViewBase;
-    lblCounter.animate
+    btnTap.opacity = 0.0;
+
     btnTap.on('tap', () => {
-        lblCounter.sli
+        lblCounter.slideToggle(500);
     });
+
+    lblTitle.slideDown(1000, -50)
+        .then(() => {
+            btnTap.fadeIn(5000)
+                .then(() => {
+                    lblTitle.slideUp(200, -50);
+                    btnTap.spring(2000, {
+                        translate: {
+                            x: 0,
+                            y: -5
+                        },
+                        scale: {
+                            x: 3.0,
+                            y: 0.5
+                        },
+                        delay: 0,
+                        dampingRatio: 0.3,
+                        velocity: 2.0,
+                        options: null
+                    });
+                });
+        }
+        );
+
 }
-var a = 0;

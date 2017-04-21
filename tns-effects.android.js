@@ -8,7 +8,14 @@ var ViewEffects = (function () {
     }
     ViewEffects.prototype.nativeSpring = function (animation) {
         //this is where the native android spring animation will be implemeted 
-        return this._view.animate(animation);
+        var def = {
+            scale: { x: animation.scale.x, y: animation.scale.y },
+            translate: { x: animation.translate.x, y: animation.translate.y },
+            delay: animation.delay,
+            duration: animation.duration,
+            curve: 'spring'
+        };
+        return this._view.animate(def);
     };
     return ViewEffects;
 }());

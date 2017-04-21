@@ -1,6 +1,5 @@
 //nativescript-effects
 import * as viewModule from 'ui/core/view';
-//var viewModule = require("ui/core/view");
 var typesModule = require("utils/types");
 var definition = require("./tns-effects");
 var enums = require("ui/enums");

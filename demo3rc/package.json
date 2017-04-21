@@ -7,6 +7,9 @@
     "id": "org.nativescript.demo3rc",
     "tns-ios": {
       "version": "3.0.0-rc.1-2017-3-28-2"
+    },
+    "tns-android": {
+      "version": "3.0.0-rc.1"
     }
   },
   "dependencies": {
@@ -15,6 +18,10 @@
     "tns-core-modules": "rc"
   },
   "devDependencies": {
+    "babel-traverse": "6.24.1",
+    "babel-types": "6.24.1",
+    "babylon": "6.17.0",
+    "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-typescript": "~0.4.0",
     "typescript": "~2.2.1"
