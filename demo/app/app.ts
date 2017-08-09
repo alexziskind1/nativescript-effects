@@ -1,17 +1,5 @@
-﻿/*
-In NativeScript, the app.ts file is the entry point to your application.
-You can use this file to perform app-level initialization, but the primary
-purpose of the file is to pass control to the app’s first module.
-*/
+﻿import * as application from 'tns-core-modules/application';
 
-import "./bundle-config";
-import * as app from 'application';
+const tnsfx = require('nativescript-effects');
 
-var tnsfx = require('nativescript-effects');
-
-app.start({ moduleName: 'main-page' });
-
-/*
-Do not place any code after the application has been started as it will not
-be executed on iOS.
-*/
+application.start({ moduleName: "main-page" });

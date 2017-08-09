@@ -1,22 +1,17 @@
-import common = require("./tns-effects-common");
-import { View } from "ui/core/view";
+import { Common } from './effects.common';
+import * as viewModule from 'tns-core-modules/ui/core/view';
 
-global.moduleMerge(common, exports);
+export class Effects extends Common {
+    private _view: viewModule.View;
 
-export class ViewEffects {
-    private _view: View;
-
-    constructor(view: View) {
+    constructor(view: viewModule.View) {
+        super();
         this._view = view;
     }
 
-    public test(s: number = 4) {
-
-    }
-
     public nativeSpring(animation): Promise<any> {
-        var aTrans = { x: 0, y: 0 };
-        var aScale = { x: 1, y: 1 };
+        const aTrans = { x: 0, y: 0 };
+        const aScale = { x: 1, y: 1 };
 
         if (animation.translate) {
             if (animation.translate.x)
@@ -54,3 +49,33 @@ export class ViewEffects {
         });
     }
 }
+
+viewModule.View.prototype.spring = function (duration, animation) {
+    if (duration === void 0) { duration = Effects.defaultDuration; }
+
+    const msDuration = Effects.getMsValue(duration);
+    if (!animation) {
+        animation = {
+            translate: {
+                x: 0,
+                y: -100
+            },
+            scale: {
+                x: 2,
+                y: 2
+            },
+            duration: msDuration,
+            delay: 0,
+            dampingRatio: 0.3,
+            velocity: 2.0,
+            options: null
+        };
+    }
+    else {
+        animation.duration = msDuration;
+    }
+
+
+    const fx = new Effects(this);
+    return fx.nativeSpring(animation);
+};

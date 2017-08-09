@@ -11,3 +11,8 @@ tsconfig.json
 !index.d.ts
 !tns-effects.d.ts
 !*.js
+
+*.map
+*.ts
+!*.d.ts
+tsconfig.json
