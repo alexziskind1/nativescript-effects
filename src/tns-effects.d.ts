@@ -1,8 +1,9 @@
 import { Common } from './effects.common';
-import { View } from 'tns-core-modules/ui/core/view';
+import { View } from '@nativescript/core/ui/core/view';
 
-declare module 'tns-core-modules/ui/core/view' {
-  interface View {
+declare module '@nativescript/core/ui/core/view' {
+  interface View
+  {
     fadeIn(duration?: string | number): Promise<void>;
     fadeOut(duration?: string | number): Promise<void>;
     fadeTo(duration?: string | number, opacity?: number): Promise<void>;
@@ -25,7 +26,8 @@ declare module 'tns-core-modules/ui/core/view' {
   }
 }
 
-export declare class Effects extends Common {
+export declare class Effects extends Common
+{
   // define your typings manually
   // or..
   // take the ios or android .d.ts files and copy/paste them here
