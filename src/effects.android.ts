@@ -1,17 +1,17 @@
 import { Common } from './effects.common';
-import { AnimationDefinition } from 'tns-core-modules/ui/animation';
-import * as viewModule from 'tns-core-modules/ui/core/view';
+import { AnimationDefinition } from '@nativescript/core';
+import { View } from '@nativescript/core/ui';
 
 export class Effects extends Common {
-    private _view: viewModule.View;
+    private _view: View;
 
-    constructor(view: viewModule.View) {
+    constructor(view: View) {
         super();
         this._view = view;
     }
 
     public nativeSpring(animation): Promise<void> {
-        //this is where the native android spring animation will be implemeted 
+        // this is where the native android spring animation will be implemeted 
         let def: AnimationDefinition = {
             scale: { x: animation.scale.x, y: animation.scale.y },
             translate: { x: animation.translate.x, y: animation.translate.y },
@@ -23,7 +23,7 @@ export class Effects extends Common {
     }
 }
 
-viewModule.View.prototype.spring = function (duration, animation) {
+View.prototype.spring = function (duration, animation) {
     if (duration === void 0) { duration = Effects.defaultDuration; }
 
     const msDuration = Effects.getMsValue(duration);

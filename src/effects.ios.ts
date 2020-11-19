@@ -1,10 +1,10 @@
+import { View } from '@nativescript/core/ui';
 import { Common } from './effects.common';
-import * as viewModule from 'tns-core-modules/ui/core/view';
 
 export class Effects extends Common {
-    private _view: viewModule.View;
+    private _view: View;
 
-    constructor(view: viewModule.View) {
+    constructor(view: View) {
         super();
         this._view = view;
     }
@@ -50,7 +50,7 @@ export class Effects extends Common {
     }
 }
 
-viewModule.View.prototype.spring = function (duration, animation) {
+View.prototype.spring = function (duration, animation) {
     if (duration === void 0) { duration = Effects.defaultDuration; }
 
     const msDuration = Effects.getMsValue(duration);

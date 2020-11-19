@@ -1,7 +1,7 @@
 import { Common } from './effects.common';
-import { View } from '@nativescript/core/ui/core/view';
+import { View } from '@nativescript/core/ui';
 
-declare module '@nativescript/core/ui/core/view' {
+declare module '@nativescript/core/ui' {
   interface View
   {
     fadeIn(duration?: string | number): Promise<void>;

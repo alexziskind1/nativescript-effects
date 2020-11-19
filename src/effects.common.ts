@@ -1,9 +1,7 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import * as app from 'tns-core-modules/application';
-import * as dialogs from 'tns-core-modules/ui/dialogs';
-import * as viewModule from 'tns-core-modules/ui/core/view';
-import * as typesModule from 'tns-core-modules/utils/types';
-import * as enums from 'tns-core-modules/ui/enums';
+
+import { Observable, Enums } from '@nativescript/core';
+import { View } from '@nativescript/core/ui';
+import { isDefined, isNumber, isString } from '@nativescript/core/utils/types';
 
 export class Common extends Observable {
     public static defaultDuration = 400;
@@ -20,12 +18,12 @@ export class Common extends Observable {
         'slow': 600
     };
     public static getMsValue(duration) {
-        if (typesModule.isString(duration)) {
-            if (typesModule.isDefined(Common.presetDurations[duration])) {
+        if (isString(duration)) {
+            if (isDefined(Common.presetDurations[duration])) {
                 return this.presetDurations[duration];
             }
         }
-        else if (typesModule.isNumber(duration)) {
+        else if (isNumber(duration)) {
             return duration;
         }
         else {
@@ -34,10 +32,10 @@ export class Common extends Observable {
     }
 }
 
-viewModule.View.prototype.fadeIn = function(duration) {
+View.prototype.fadeIn = function(duration) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     const msDuration = Common.getMsValue(duration);
-    this.visibility = enums.Visibility.visible;
+    this.visibility = Enums.Visibility.visible;
     return this.animate({
         opacity: 1,
         duration: msDuration
@@ -45,7 +43,7 @@ viewModule.View.prototype.fadeIn = function(duration) {
 };
 
 
-viewModule.View.prototype.fadeOut = function(duration) {
+View.prototype.fadeOut = function(duration) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     const msDuration = Common.getMsValue(duration);
     return this.animate({
@@ -54,18 +52,18 @@ viewModule.View.prototype.fadeOut = function(duration) {
     });
 };
 
-viewModule.View.prototype.fadeTo = function(duration, opacity) {
+View.prototype.fadeTo = function(duration, opacity) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (opacity === void 0) { opacity = 1; }
     const msDuration = Common.getMsValue(duration);
-    this.visibility = enums.Visibility.visible;
+    this.visibility = Enums.Visibility.visible;
     return this.animate({
         opacity: opacity,
         duration: msDuration
     });
 };
 
-viewModule.View.prototype.fadeToggle = function(duration) {
+View.prototype.fadeToggle = function(duration) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (this.opacity > 0) {
         return this.fadeOut(duration);
@@ -77,12 +75,12 @@ viewModule.View.prototype.fadeToggle = function(duration) {
 
 //.floatIn( [duration ]  )
 //.floatIn( options )
-viewModule.View.prototype.floatIn = function(duration, direction) {
+View.prototype.floatIn = function(duration, direction) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (direction === void 0) { direction = Common.defaultFloatDirection; }
     const self = this;
     const msDuration = Common.getMsValue(duration);
-    this.visibility = enums.Visibility.visible;
+    this.visibility = Enums.Visibility.visible;
     let dir = Common.presetDirections[direction];
     if (!dir) {
         dir = Common.presetDirections['up'];
@@ -105,7 +103,7 @@ viewModule.View.prototype.floatIn = function(duration, direction) {
 
 
 
-viewModule.View.prototype.floatOut = function(duration, direction) {
+View.prototype.floatOut = function(duration, direction) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (direction === void 0) { direction = Common.defaultFloatDirection; }
     const msDuration = Common.getMsValue(duration);
@@ -124,21 +122,21 @@ viewModule.View.prototype.floatOut = function(duration, direction) {
 //.hide()
 //.hide( [duration ] )
 //.hide( options )
-viewModule.View.prototype.hide = function(duration) {
+View.prototype.hide = function(duration) {
     if (duration === void 0) { duration = 1; }
-    this.visibility = enums.Visibility.collapse;
+    this.visibility = Enums.Visibility.collapse;
     return this.fadeOut(duration);
 };
 
-viewModule.View.prototype.show = function(duration) {
+View.prototype.show = function(duration) {
     if (duration === void 0) { duration = 1; }
-    this.visibility = enums.Visibility.visible;
+    this.visibility = Enums.Visibility.visible;
     return this.fadeIn(duration);
 };
 
-viewModule.View.prototype.toggle = function(duration) {
+View.prototype.toggle = function(duration) {
     if (duration === void 0) { duration = 1; }
-    if (this.visibility === enums.Visibility.collapse) {
+    if (this.visibility === Enums.Visibility.collapse) {
         return this.show(duration);
     }
     else {
@@ -148,13 +146,13 @@ viewModule.View.prototype.toggle = function(duration) {
 
 //.slideDown( [duration ]  )
 //.slideDown( options )
-viewModule.View.prototype.slideDown = function(duration, distance) {
+View.prototype.slideDown = function(duration, distance) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (distance === void 0) { distance = Common.defaultSlideDistance; }
     const self = this;
 
     const msDuration = Common.getMsValue(duration);
-    this.visibility = enums.Visibility.visible;
+    this.visibility = Enums.Visibility.visible;
 
     this.translateY = distance;
     this.opacity = 0;
@@ -174,7 +172,7 @@ viewModule.View.prototype.slideDown = function(duration, distance) {
     });
 };
 
-viewModule.View.prototype.slideUp = function(duration, distance) {
+View.prototype.slideUp = function(duration, distance) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (distance === void 0) { distance = Common.defaultSlideDistance; }
 
@@ -186,7 +184,7 @@ viewModule.View.prototype.slideUp = function(duration, distance) {
     });
 };
 
-viewModule.View.prototype.slideToggle = function(duration, distance) {
+View.prototype.slideToggle = function(duration, distance) {
     if (duration === void 0) { duration = Common.defaultDuration; }
     if (distance === void 0) { distance = Common.defaultSlideDistance; }
 
@@ -198,18 +196,18 @@ viewModule.View.prototype.slideToggle = function(duration, distance) {
     }
 };
 
-viewModule.View.prototype.shake = function() {
+View.prototype.shake = function() {
     const view = this;
     return new Promise(function(resolve, reject) {
-        view.animate({ translate: { x: -20, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear })
-            .then(function() { return view.animate({ translate: { x: 20, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: -20, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: 20, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: -10, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: 10, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: -5, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: 5, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
-            .then(function() { return view.animate({ translate: { x: 0, y: 0 }, duration: 60, curve: enums.AnimationCurve.linear }); })
+        view.animate({ translate: { x: -20, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear })
+            .then(function() { return view.animate({ translate: { x: 20, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: -20, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: 20, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: -10, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: 10, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: -5, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: 5, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
+            .then(function() { return view.animate({ translate: { x: 0, y: 0 }, duration: 60, curve: Enums.AnimationCurve.linear }); })
             .then(function() {
                 return resolve(view);
             });

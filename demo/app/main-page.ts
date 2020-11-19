@@ -4,10 +4,7 @@ a code-behind file. The code-behind is a great place to place your view
 logic, and to set up your page’s data binding.
 */
 
-import { EventData } from 'tns-core-modules/data/observable';
-import { Page } from 'tns-core-modules/ui/page';
-import { Button } from 'tns-core-modules/ui/button';
-import { Label } from 'tns-core-modules/ui/label';
+import { Button, EventData, Label, Page } from '@nativescript/core';
 import { HelloWorldModel } from './main-view-model';
 
 
