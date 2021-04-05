@@ -1,10 +1,7 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
-
     <StackLayout class="p-20">
         <Label text="Tap the button" class="h1 text-center" id="lblTitle"/>
         <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active" id="btnTap"/>
         <Label text="{{ message }}" class="h2 text-center" textWrap="true" id="lblCounter"/>
     </StackLayout>
-
-    
 </Page>

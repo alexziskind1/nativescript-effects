@@ -4,7 +4,7 @@ a code-behind file. The code-behind is a great place to place your view
 logic, and to set up your page’s data binding.
 */
 
-import { Button, EventData, Label, Page } from '@nativescript/core';
+import { Button, Label, NavigatedData, Page } from '@nativescript/core';
 import { HelloWorldModel } from './main-view-model';
 
 
@@ -13,7 +13,7 @@ let btnTap: Button;
 let lblCounter: Label;
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
-export function navigatingTo(args: EventData) {
+export function navigatingTo(args: NavigatedData) {
     /*
     This gets a reference this page’s <Page> UI component. You can
     view the API reference of the Page to see what’s available at
@@ -63,6 +63,5 @@ export function navigatingTo(args: EventData) {
                         options: null
                     });
                 });
-        }
-        );
+        });
 }
