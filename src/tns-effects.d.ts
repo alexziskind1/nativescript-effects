@@ -2,8 +2,7 @@ import { Common } from './effects.common';
 import { View } from '@nativescript/core/ui';
 
 declare module '@nativescript/core/ui' {
-  interface View
-  {
+  interface View {
     fadeIn(duration?: string | number): Promise<void>;
     fadeOut(duration?: string | number): Promise<void>;
     fadeTo(duration?: string | number, opacity?: number): Promise<void>;
@@ -26,8 +25,7 @@ declare module '@nativescript/core/ui' {
   }
 }
 
-export declare class Effects extends Common
-{
+export declare class Effects extends Common {
   // define your typings manually
   // or..
   // take the ios or android .d.ts files and copy/paste them here

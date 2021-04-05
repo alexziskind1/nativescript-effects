@@ -11,7 +11,7 @@ export class Effects extends Common {
     }
 
     public nativeSpring(animation): Promise<void> {
-        // this is where the native android spring animation will be implemeted 
+        // this is where the native android spring animation will be implemeted
         let def: AnimationDefinition = {
             scale: { x: animation.scale.x, y: animation.scale.y },
             translate: { x: animation.translate.x, y: animation.translate.y },
