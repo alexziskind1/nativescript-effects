@@ -1,15 +1,3 @@
-/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
-
-android {
-	productFlavors {
-		"nativescript-effects" {
-			dimension "nativescript-effects"
-		}
-	}
-}
-
 dependencies {
-    // Describe plugin native Android dependencies like
-	// compile "groupName:pluginName:ver" 
-    // EXAMPLE: compile "com.facebook.fresco:fresco:0.9.0+"
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
 }
