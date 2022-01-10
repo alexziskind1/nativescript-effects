@@ -18,13 +18,13 @@ To use the animation effects plugin you must first `require()` its module. After
 In the demo app, this require line is added to the `app.ts` file, but you can also add it to a single code behind file where you will use the effects.
 
 ``` js
-var tnsfx = require('nativescript-effects');
+var nsfx = require('nativescript-effects');
 ```
 
 ### TypeScript
 To avoid type checking errors, you must additionally configure TypeScript to recognize the method extensions to `View`. Simply add the following line to `references.d.ts` in the root of your project:
 ```typescript
-/// <reference path="./node_modules/nativescript-effects/tns-effects.d.ts" />
+/// <reference path="./node_modules/nativescript-effects/index.d.ts" />
 ```
 
 Then get a reference to the view you want to animate and call one of the functions listed below. This view can be any child of the NativeScript View class such as Button, Label, etc.
