@@ -6,6 +6,7 @@ logic, and to set up your page’s data binding.
 
 import { Button, Label, NavigatedData, Page } from '@nativescript/core';
 import { HelloWorldModel } from './main-view-model';
+import 'nativescript-effects';
 
 
 let lblTitle: Label;
@@ -31,37 +32,15 @@ export function navigatingTo(args: NavigatedData) {
     You can learn more about data binding in NativeScript at
     https://docs.nativescript.org/core-concepts/data-binding.
     */
-    page.bindingContext = new HelloWorldModel();
+    page.bindingContext = new HelloWorldModel(page);
 
     lblTitle = <Label>page.getViewById('lblTitle');
     btnTap = <Button>page.getViewById('btnTap');
     lblCounter = <Label>page.getViewById('lblCounter');
-
+    
     btnTap.opacity = 0;
-
+    
     btnTap.on('tap', () => {
         lblCounter.slideToggle(500);
     });
-
-    lblTitle.slideDown(1000, -50)
-        .then(() => {
-            btnTap.fadeIn(5000)
-                .then(() => {
-                    lblTitle.slideUp(200, -50);
-                    btnTap.spring(2000, {
-                        translate: {
-                            x: 0,
-                            y: -50
-                        },
-                        scale: {
-                            x: 3.0,
-                            y: 0.5
-                        },
-                        delay: 0,
-                        dampingRatio: 0.3,
-                        velocity: 2.0,
-                        options: null
-                    });
-                });
-        });
 }
